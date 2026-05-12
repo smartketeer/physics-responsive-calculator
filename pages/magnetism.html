@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magnetism Calculators — ElectraMag</title>
+  <meta name="description" content="Interactive magnetism calculators for magnetic force on wires and moving charges." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">
+      <span class="logo-icon">⚡</span> ElectraMag
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="formulas.html">Formulas</a></li>
+      <li><a href="electricity.html">Electricity</a></li>
+      <li><a href="magnetism.html">Magnetism</a></li>
+      <li><a href="problems.html">Problems</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <div class="section-label">Interactive Tools</div>
+  <h1><span style="-webkit-text-fill-color:initial;font-style:normal">🧲</span> Magnetism Calculators</h1>
+  <p>Compute magnetic forces on current-carrying wires and moving charged particles</p>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="calc-grid">
+
+      <!-- ── MAGNETIC FORCE ON WIRE ── -->
+      <div class="calc-card">
+        <div class="calc-header">
+          <div class="calc-icon">🔗</div>
+          <h3>Magnetic Force on a Wire</h3>
+        </div>
+        <div class="calc-formula">F = B × I × L × sin(θ)</div>
+
+        <div class="form-group">
+          <label for="mw-B">Magnetic Field B — in Tesla (T)</label>
+          <input type="number" id="mw-B" placeholder="e.g. 0.5" step="any" min="0" />
+        </div>
+        <div class="form-group">
+          <label for="mw-I">Current I — in Amperes (A)</label>
+          <input type="number" id="mw-I" placeholder="e.g. 3" step="any" min="0" />
+        </div>
+        <div class="form-group">
+          <label for="mw-L">Wire Length L — in Meters (m)</label>
+          <input type="number" id="mw-L" placeholder="e.g. 0.4" step="any" min="0" />
+        </div>
+        <div class="form-group">
+          <label for="mw-theta">Angle θ — in Degrees (°)</label>
+          <input type="number" id="mw-theta" placeholder="e.g. 90" step="any" value="90" />
+        </div>
+
+        <button class="btn btn-calc" onclick="calcMagWire()">🧲 Calculate</button>
+        <div id="mw-result" class="result-box"></div>
+
+        <div style="margin-top:1rem;padding:0.8rem 1rem;background:rgba(6,182,212,0.06);border-radius:8px;border:1px solid rgba(6,182,212,0.15)">
+          <div style="font-size:0.78rem;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">💡 Note</div>
+          <div style="font-size:0.82rem;color:var(--text-muted)">Maximum force occurs when θ = 90° (wire perpendicular to field). Force is zero when θ = 0° or 180°.</div>
+        </div>
+      </div>
+
+      <!-- ── MAGNETIC FORCE ON CHARGE ── -->
+      <div class="calc-card">
+        <div class="calc-header">
+          <div class="calc-icon">⚛</div>
+          <h3>Magnetic Force on a Charge</h3>
+        </div>
+        <div class="calc-formula">F = q × v × B × sin(θ)</div>
+
+        <div class="form-group">
+          <label for="mc-q">Charge q — in Coulombs (C)</label>
+          <input type="number" id="mc-q" placeholder="e.g. 1.6e-19" step="any" />
+        </div>
+        <div class="form-group">
+          <label for="mc-v">Velocity v — in Meters/Second (m/s)</label>
+          <input type="number" id="mc-v" placeholder="e.g. 3e6" step="any" min="0" />
+        </div>
+        <div class="form-group">
+          <label for="mc-B">Magnetic Field B — in Tesla (T)</label>
+          <input type="number" id="mc-B" placeholder="e.g. 0.2" step="any" min="0" />
+        </div>
+        <div class="form-group">
+          <label for="mc-theta">Angle θ — in Degrees (°)</label>
+          <input type="number" id="mc-theta" placeholder="e.g. 90" step="any" value="90" />
+        </div>
+
+        <button class="btn btn-calc" onclick="calcMagCharge()">🧲 Calculate</button>
+        <div id="mc-result" class="result-box"></div>
+
+        <div style="margin-top:1rem;padding:0.8rem 1rem;background:rgba(6,182,212,0.06);border-radius:8px;border:1px solid rgba(6,182,212,0.15)">
+          <div style="font-size:0.78rem;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px">💡 Lorentz Force</div>
+          <div style="font-size:0.82rem;color:var(--text-muted)">This is the Lorentz force law. The direction follows the right-hand rule (for positive charges). The magnitude uses |q|.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ANGLE REFERENCE CARD -->
+    <div style="margin-top:2.5rem">
+      <div class="section-header" style="text-align:left;margin-bottom:1.2rem">
+        <div class="section-label">Reference</div>
+        <h2 style="font-size:1.3rem">sin(θ) Values at Key Angles</h2>
+      </div>
+      <div class="formula-table-wrap">
+        <table class="formula-table">
+          <thead>
+            <tr>
+              <th>Angle θ</th><th>sin(θ)</th><th>Force Factor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0°</td><td><span class="formula-code">0.000</span></td><td style="color:var(--text-muted)">No force (parallel)</td></tr>
+            <tr><td>30°</td><td><span class="formula-code">0.500</span></td><td style="color:var(--text-muted)">Half maximum force</td></tr>
+            <tr><td>45°</td><td><span class="formula-code">0.707</span></td><td style="color:var(--text-muted)">≈ 70.7% of max</td></tr>
+            <tr><td>60°</td><td><span class="formula-code">0.866</span></td><td style="color:var(--text-muted)">≈ 86.6% of max</td></tr>
+            <tr><td>90°</td><td><span class="formula-code">1.000</span></td><td style="color:var(--text-muted)">Maximum force (perpendicular)</td></tr>
+            <tr><td>180°</td><td><span class="formula-code">0.000</span></td><td style="color:var(--text-muted)">No force (anti-parallel)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <strong>ElectraMag</strong> — Electricity &amp; Magnetism Calculator Platform
+</footer>
+
+<script src="../js/calculators.js"></script>
+</body>
+</html>

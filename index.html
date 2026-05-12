@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElectraMag — E&M Physics Calculator</title>
+  <meta name="description" content="Interactive Electricity and Magnetism calculators, formula guides, and sample problems for physics students." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <span class="logo-icon">⚡</span>
+      ElectraMag
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/formulas.html">Formulas</a></li>
+      <li><a href="pages/electricity.html">Electricity</a></li>
+      <li><a href="pages/magnetism.html">Magnetism</a></li>
+      <li><a href="pages/problems.html">Problems</a></li>
+      <li><a href="pages/about.html">About</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⚛ Physics Learning Platform</div>
+    <h1>Electricity &amp; Magnetism<br>Made Calculable</h1>
+    <p>Solve E&amp;M problems instantly with interactive calculators, explore key formulas, and follow step-by-step worked examples — all in one place.</p>
+    <div class="hero-btns">
+      <a href="pages/electricity.html" class="btn btn-primary">⚡ Electricity Calculators</a>
+      <a href="pages/magnetism.html" class="btn btn-outline">🧲 Magnetism Calculators</a>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section" style="padding-top:2rem">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">What's Inside</div>
+      <h2>Everything You Need to Solve E&amp;M</h2>
+      <p>From fundamental formulas to interactive calculators and worked problems</p>
+    </div>
+    <div class="overview-grid">
+      <a class="overview-card" href="pages/formulas.html">
+        <div class="ov-icon">📐</div>
+        <h3>Formula Guide</h3>
+        <p>Reference table of all major E&amp;M formulas with units and symbol meanings.</p>
+      </a>
+      <a class="overview-card" href="pages/electricity.html">
+        <div class="ov-icon">⚡</div>
+        <h3>Electricity Calculators</h3>
+        <p>Ohm's Law, Electric Power, Coulomb's Law, and Electric Field — solve any variable.</p>
+      </a>
+      <a class="overview-card" href="pages/magnetism.html">
+        <div class="ov-icon">🧲</div>
+        <h3>Magnetism Calculators</h3>
+        <p>Magnetic force on current-carrying wires and moving charges with angle support.</p>
+      </a>
+      <a class="overview-card" href="pages/problems.html">
+        <div class="ov-icon">📝</div>
+        <h3>Sample Problems</h3>
+        <p>Fully worked step-by-step problems: Given → Formula → Substitution → Answer.</p>
+      </a>
+      <a class="overview-card" href="pages/about.html">
+        <div class="ov-icon">👥</div>
+        <h3>About the Team</h3>
+        <p>Meet the developers behind this educational physics platform.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONSTANTS STRIP -->
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Key Constants</div>
+      <h2>Physics Constants Used</h2>
+    </div>
+    <div class="overview-grid">
+      <div class="card">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem">🔵</div>
+        <div style="font-family:'JetBrains Mono',monospace;color:var(--secondary);font-size:1rem;font-weight:600">k = 8.99 × 10⁹ N·m²/C²</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px">Coulomb's constant</div>
+      </div>
+      <div class="card">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem">🔴</div>
+        <div style="font-family:'JetBrains Mono',monospace;color:var(--secondary);font-size:1rem;font-weight:600">e = 1.6 × 10⁻¹⁹ C</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px">Elementary charge</div>
+      </div>
+      <div class="card">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem">📐</div>
+        <div style="font-family:'JetBrains Mono',monospace;color:var(--secondary);font-size:1rem;font-weight:600">θ in degrees → radians</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px">All trig functions auto-converted</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>ElectraMag</strong> — Electricity &amp; Magnetism Calculator Platform &nbsp;|&nbsp; Built for Physics Students
+</footer>
+
+<script src="js/calculators.js"></script>
+</body>
+</html>

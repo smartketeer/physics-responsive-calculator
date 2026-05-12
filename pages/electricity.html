@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electricity Calculators — ElectraMag</title>
+  <meta name="description" content="Interactive electricity calculators: Ohm's Law, Electric Power, Coulomb's Law, and Electric Field." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">
+      <span class="logo-icon">⚡</span> ElectraMag
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="formulas.html">Formulas</a></li>
+      <li><a href="electricity.html">Electricity</a></li>
+      <li><a href="magnetism.html">Magnetism</a></li>
+      <li><a href="problems.html">Problems</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <div class="section-label">Interactive Tools</div>
+  <h1><span style="-webkit-text-fill-color:initial">⚡</span> Electricity Calculators</h1>
+  <p>Solve for any variable — enter two known values and get the result instantly</p>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="calc-grid">
+
+      <!-- ── OHM'S LAW ── -->
+      <div class="calc-card">
+        <div class="calc-header">
+          <div class="calc-icon">🔌</div>
+          <h3>Ohm's Law</h3>
+        </div>
+        <div class="calc-formula" id="ohm-formula-label">V = I × R</div>
+
+        <div class="form-group">
+          <label for="ohm-solve">Solve for:</label>
+          <select id="ohm-solve" onchange="updateOhmFields()">
+            <option value="V">Voltage (V)</option>
+            <option value="I">Current (I)</option>
+            <option value="R">Resistance (R)</option>
+          </select>
+        </div>
+
+        <div id="ohm-V-group" class="form-group" style="display:none">
+          <label for="ohm-V">Voltage (V) — in Volts</label>
+          <input type="number" id="ohm-V" placeholder="e.g. 12" step="any" />
+        </div>
+        <div id="ohm-I-group" class="form-group">
+          <label for="ohm-I">Current (I) — in Amperes</label>
+          <input type="number" id="ohm-I" placeholder="e.g. 2" step="any" />
+        </div>
+        <div id="ohm-R-group" class="form-group">
+          <label for="ohm-R">Resistance (R) — in Ohms (Ω)</label>
+          <input type="number" id="ohm-R" placeholder="e.g. 6" step="any" />
+        </div>
+
+        <button class="btn btn-calc" onclick="calcOhm()">⚡ Calculate</button>
+        <div id="ohm-result" class="result-box"></div>
+      </div>
+
+      <!-- ── ELECTRIC POWER ── -->
+      <div class="calc-card">
+        <div class="calc-header">
+          <div class="calc-icon">💡</div>
+          <h3>Electric Power</h3>
+        </div>
+        <div class="calc-formula" id="pow-formula-label">P = V × I</div>
+
+        <div class="form-group">
+          <label for="pow-solve">Solve for:</label>
+          <select id="pow-solve" onchange="updatePowerFields()">
+            <option value="P">Power (P)</option>
+            <option value="V">Voltage (V)</option>
+            <option value="I">Current (I)</option>
+          </select>
+        </div>
+
+        <div id="pow-P-group" class="form-group" style="display:none">
+          <label for="pow-P">Power (P) — in Watts</label>
+          <input type="number" id="pow-P" placeholder="e.g. 60" step="any" />
+        </div>
+        <div id="pow-V-group" class="form-group">
+          <label for="pow-V">Voltage (V) — in Volts</label>
+          <input type="number" id="pow-V" placeholder="e.g. 120" step="any" />
+        </div>
+        <div id="pow-I-group" class="form-group">
+          <label for="pow-I">Current (I) — in Amperes</label>
+          <input type="number" id="pow-I" placeholder="e.g. 0.5" step="any" />
+        </div>
+
+        <button class="btn btn-calc" onclick="calcPower()">⚡ Calculate</button>
+        <div id="pow-result" class="result-box"></div>
+      </div>
+
+      <!-- ── COULOMB'S LAW ── -->
+      <div class="calc-card">
+        <div class="calc-header">
+          <div class="calc-icon">🔵</div>
+          <h3>Coulomb's Law</h3>
+        </div>
+        <div class="calc-formula">F = kq₁q₂ / r²</div>
+
+        <div class="form-group">
+          <label for="coul-q1">Charge q₁ — in Coulombs (C)</label>
+          <input type="number" id="coul-q1" placeholder="e.g. 2e-6 for 2 μC" step="any" />
+        </div>
+        <div class="form-group">
+          <label for="coul-q2">Charge q₂ — in Coulombs (C)</label>
+          <input type="number" id="coul-q2" placeholder="e.g. -3e-6 for −3 μC" step="any" />
+        </div>
+        <div class="form-group">
+          <label for="coul-r">Distance r — in Meters (m)</label>
+          <input type="number" id="coul-r" placeholder="e.g. 0.05" step="any" />
+        </div>
+
+        <button class="btn btn-calc" onclick="calcCoulomb()">⚡ Calculate</button>
+        <div id="coul-result" class="result-box"></div>
+      </div>
+
+      <!-- ── ELECTRIC FIELD ── -->
+      <div class="calc-card">
+        <div class="calc-header">
+          <div class="calc-icon">🌐</div>
+          <h3>Electric Field</h3>
+        </div>
+        <div class="calc-formula" id="ef-formula-label">E = F / q</div>
+
+        <div class="mode-toggle">
+          <button class="mode-btn active ef-mode-btn" data-mode="fq" onclick="setEFMode('fq')">Mode 1: E = F/q</button>
+          <button class="mode-btn ef-mode-btn" data-mode="kq" onclick="setEFMode('kq')">Mode 2: E = kQ/r²</button>
+        </div>
+
+        <!-- Mode 1: E = F/q -->
+        <div id="ef-mode-fq">
+          <div class="form-group">
+            <label for="ef-F">Force F — in Newtons (N)</label>
+            <input type="number" id="ef-F" placeholder="e.g. 0.003" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="ef-q">Test Charge q — in Coulombs (C)</label>
+            <input type="number" id="ef-q" placeholder="e.g. 1e-6" step="any" />
+          </div>
+        </div>
+
+        <!-- Mode 2: E = kQ/r² -->
+        <div id="ef-mode-kq" style="display:none">
+          <div class="form-group">
+            <label for="ef-Q">Source Charge Q — in Coulombs (C)</label>
+            <input type="number" id="ef-Q" placeholder="e.g. 5e-9" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="ef-r">Distance r — in Meters (m)</label>
+            <input type="number" id="ef-r" placeholder="e.g. 0.1" step="any" />
+          </div>
+        </div>
+
+        <button class="btn btn-calc" onclick="calcEField()">⚡ Calculate</button>
+        <div id="ef-result" class="result-box"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>ElectraMag</strong> — Electricity &amp; Magnetism Calculator Platform
+</footer>
+
+<script src="../js/calculators.js"></script>
+</body>
+</html>
